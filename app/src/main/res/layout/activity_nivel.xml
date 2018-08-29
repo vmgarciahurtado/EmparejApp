@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.NivelActivity">
+    tools:context=".actividades.NivelActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
