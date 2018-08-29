@@ -3,6 +3,7 @@ package com.example.worldskills.emparejapp.actividades;
 import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -288,7 +289,7 @@ public class FacilActivity extends AppCompatActivity {
         builder.setNeutralButton("Publicar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                publicar();
+                publicar("Hooooola");
             }
         });
         builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
@@ -337,7 +338,11 @@ public class FacilActivity extends AppCompatActivity {
 
 
     //Metodo para publicar en redes sociales
-    private void publicar() {
+    private void publicar(String msj) {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT,msj);
+        startActivity(intent(Intent.createChooser(Intent,msj)));
 
     }
 
