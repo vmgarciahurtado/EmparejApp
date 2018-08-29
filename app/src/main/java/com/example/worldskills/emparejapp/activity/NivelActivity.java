@@ -7,27 +7,27 @@ import android.view.View;
 
 import com.example.worldskills.emparejapp.R;
 
-public class MainActivity extends AppCompatActivity {
-
+public class NivelActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_nivel);
+
     }
 
     public void onClick(View view) {
         Intent miIntent=null;
         switch (view.getId()){
-            case R.id.juego:
-                miIntent=new Intent(MainActivity.this,NivelActivity.class);
+            case R.id.facil:
+                miIntent=new Intent(NivelActivity.this,FacilActivity.class);
+                finish();
                 break;
-            case R.id.lista:
+            case R.id.medio:
                 break;
-            case R.id.ajuste:
+            case R.id.dificil:
                 break;
         }
         startActivity(miIntent);
     }
 }
-
