@@ -25,55 +25,62 @@ import com.example.worldskills.emparejapp.utilidades.Utilidades;
 
 import java.util.Random;
 
-public class FacilActivity extends AppCompatActivity {
+public class DificilActivity extends AppCompatActivity {
 
-    ImageButton btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8;
+    ImageButton btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10, btn11, btn12, btn13, btn14, btn15, btn16;
     TextView player1, player2, puntaje1, puntaje2, tiempoTotal;
     LinearLayout primero, segundo;
-    Drawable[] parejas = new Drawable[8];
+    Drawable[] parejas = new Drawable[16];
     Drawable defecto;
     ImageView anterior, actual;
     Chronometer cronometro;
     CountDownTimer tiempo, timerTotal;
-    int n, jugador, asigandos, asignado1, asignado2, asignado3, asignado4;
+    int n, jugador, asigandos, asignado1, asignado2, asignado3, asignado4, asignado5, asignado6, asignado7, asignado8;
     int onClick = 0, cantidadParejas = 0;
     Conexion conn;
     SQLiteDatabase bd;
 
     MediaPlayer win, lose;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_facil);
-
+        setContentView(R.layout.activity_dificil);
         conn = new Conexion(getApplicationContext(), "Puntaje", null, 1);
         defecto = getResources().getDrawable(R.drawable.quien);
-        btn1 = findViewById(R.id.btn1);
-        btn2 = findViewById(R.id.btn2);
-        btn3 = findViewById(R.id.btn3);
-        btn4 = findViewById(R.id.btn4);
-        btn5 = findViewById(R.id.btn5);
-        btn6 = findViewById(R.id.btn6);
-        btn7 = findViewById(R.id.btn7);
-        btn8 = findViewById(R.id.btn8);
-        player1 = findViewById(R.id.player1);
-        player2 = findViewById(R.id.player2);
-        puntaje1 = findViewById(R.id.puntaje1);
-        puntaje2 = findViewById(R.id.puntaje2);
-        cronometro = findViewById(R.id.tiempoNormal);
-        tiempoTotal = findViewById(R.id.tiempo);
-        primero = findViewById(R.id.primero);
-        segundo = findViewById(R.id.segundo);
+        btn1 = findViewById(R.id.btn1m);
+        btn2 = findViewById(R.id.btn2m);
+        btn3 = findViewById(R.id.btn3m);
+        btn4 = findViewById(R.id.btn4m);
+        btn5 = findViewById(R.id.btn5m);
+        btn6 = findViewById(R.id.btn6m);
+        btn7 = findViewById(R.id.btn7m);
+        btn8 = findViewById(R.id.btn8m);
+        btn9 = findViewById(R.id.btn9m);
+        btn10 = findViewById(R.id.btn10m);
+        btn11 = findViewById(R.id.btn11m);
+        btn12 = findViewById(R.id.btn12m);
+        btn13 = findViewById(R.id.btn13m);
+        btn14 = findViewById(R.id.btn14m);
+        btn15 = findViewById(R.id.btn15m);
+        btn16 = findViewById(R.id.btn16m);
+        player1 = findViewById(R.id.player1m);
+        player2 = findViewById(R.id.player2m);
+        puntaje1 = findViewById(R.id.puntaje1m);
+        puntaje2 = findViewById(R.id.puntaje2m);
+        cronometro = findViewById(R.id.tiempoNormalm);
+        tiempoTotal = findViewById(R.id.tiempom);
+        primero = findViewById(R.id.primerom);
+        segundo = findViewById(R.id.segundom);
         win = MediaPlayer.create(this, R.raw.win1);
         lose = MediaPlayer.create(this, R.raw.lose1);
 
         player1.setText("Player 1:" + User.player1);
         player2.setText("Player 1:" + User.player2);
 
-
         if (User.tipo == 1) {
             cronometro.start();
+            cronometro.setVisibility(View.VISIBLE);
+            tiempoTotal.setVisibility(View.INVISIBLE);
         } else if (User.tipo == 2) {
             cronometro.setVisibility(View.INVISIBLE);
             tiempoTotal.setVisibility(View.VISIBLE);
@@ -224,6 +231,150 @@ public class FacilActivity extends AppCompatActivity {
                 }
             }
         });
+
+        btn9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onClick == 0) {
+                    onClick = 1;
+                    btn9.setImageDrawable(parejas[8]);
+                    anterior = btn9;
+                    anterior.setEnabled(false);
+                } else if (onClick == 1) {
+                    onClick = 2;
+                    btn9.setImageDrawable(parejas[8]);
+                    actual = btn9;
+                    anterior.setEnabled(false);
+                    tiempo();
+
+                }
+            }
+        });
+        btn10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onClick == 0) {
+                    onClick = 1;
+                    btn10.setImageDrawable(parejas[9]);
+                    anterior = btn10;
+                    anterior.setEnabled(false);
+                } else if (onClick == 1) {
+                    onClick = 2;
+                    btn10.setImageDrawable(parejas[9]);
+                    actual = btn10;
+                    anterior.setEnabled(false);
+                    tiempo();
+
+                }
+            }
+        });
+        btn11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onClick == 0) {
+                    onClick = 1;
+                    btn11.setImageDrawable(parejas[10]);
+                    anterior = btn11;
+                    anterior.setEnabled(false);
+                } else if (onClick == 1) {
+                    onClick = 2;
+                    btn11.setImageDrawable(parejas[10]);
+                    actual = btn11;
+                    anterior.setEnabled(false);
+                    tiempo();
+                }
+            }
+        });
+        btn12.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onClick == 0) {
+                    onClick = 1;
+                    btn12.setImageDrawable(parejas[11]);
+                    anterior = btn12;
+                    anterior.setEnabled(false);
+                } else if (onClick == 1) {
+                    onClick = 2;
+                    btn12.setImageDrawable(parejas[11]);
+                    actual = btn12;
+                    anterior.setEnabled(false);
+                    tiempo();
+
+                }
+            }
+        });
+
+        btn13.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onClick == 0) {
+                    onClick = 1;
+                    btn13.setImageDrawable(parejas[12]);
+                    anterior = btn13;
+                    anterior.setEnabled(false);
+                } else if (onClick == 1) {
+                    onClick = 2;
+                    btn13.setImageDrawable(parejas[12]);
+                    actual = btn13;
+                    anterior.setEnabled(false);
+                    tiempo();
+
+                }
+            }
+        });
+        btn14.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onClick == 0) {
+                    onClick = 1;
+                    btn14.setImageDrawable(parejas[13]);
+                    anterior = btn14;
+                    anterior.setEnabled(false);
+                } else if (onClick == 1) {
+                    onClick = 2;
+                    btn14.setImageDrawable(parejas[13]);
+                    actual = btn14;
+                    anterior.setEnabled(false);
+                    tiempo();
+
+                }
+            }
+        });
+        btn15.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onClick == 0) {
+                    onClick = 1;
+                    btn15.setImageDrawable(parejas[14]);
+                    anterior = btn15;
+                    anterior.setEnabled(false);
+                } else if (onClick == 1) {
+                    onClick = 2;
+                    btn15.setImageDrawable(parejas[14]);
+                    actual = btn15;
+                    anterior.setEnabled(false);
+                    tiempo();
+                }
+            }
+        });
+        btn16.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onClick == 0) {
+                    onClick = 1;
+                    btn16.setImageDrawable(parejas[15]);
+                    anterior = btn16;
+                    anterior.setEnabled(false);
+                } else if (onClick == 1) {
+                    onClick = 2;
+                    btn16.setImageDrawable(parejas[15]);
+                    actual = btn16;
+                    anterior.setEnabled(false);
+                    tiempo();
+
+                }
+            }
+        });
     }
 
     private void tiempoReversa() {
@@ -317,14 +468,14 @@ public class FacilActivity extends AppCompatActivity {
         ContentValues values = new ContentValues();
         values.put(Utilidades.CAMPO_JUGADOR, User.player1);
         values.put(Utilidades.CAMPO_PUNTAJE, User.puntaje1);
-        values.put(Utilidades.CAMPO_NIVEL, 1);
+        values.put(Utilidades.CAMPO_NIVEL, 3);
 
         bd.insert(Utilidades.TABLA_JUEGO, Utilidades.CAMPO_PUNTAJE, values);
 
         values = new ContentValues();
         values.put(Utilidades.CAMPO_JUGADOR, User.player2);
         values.put(Utilidades.CAMPO_PUNTAJE, User.puntaje2);
-        values.put(Utilidades.CAMPO_NIVEL, 1);
+        values.put(Utilidades.CAMPO_NIVEL, 3);
 
         bd.insert(Utilidades.TABLA_JUEGO, Utilidades.CAMPO_PUNTAJE, values);
 
@@ -387,7 +538,7 @@ public class FacilActivity extends AppCompatActivity {
                 puntaje2.setText("Puntaje: " + User.puntaje2);
                 onClick = 0;
                 tiempo.cancel();
-                if (cantidadParejas == 4) {
+                if (cantidadParejas == 8) {
                     termina();
                 }
             }
@@ -398,14 +549,14 @@ public class FacilActivity extends AppCompatActivity {
 
     //Metodo que generar las parejas aleatoriamente
     private void generarParejas() {
-        while (asigandos < 8) {
-            n = new Random().nextInt(4);
+        while (asigandos < 16) {
+            n = new Random().nextInt(8);
             switch (n + 1) {
                 case 1:
                     while (asignado1 < 2) {
-                        int posicion = new Random().nextInt(8);
+                        int posicion = new Random().nextInt(16);
                         while (parejas[posicion] != null) {
-                            posicion = new Random().nextInt(8);
+                            posicion = new Random().nextInt(16);
                         }
                         parejas[posicion] = getResources().getDrawable(R.drawable.img1);
                         asigandos++;
@@ -414,9 +565,9 @@ public class FacilActivity extends AppCompatActivity {
                     break;
                 case 2:
                     while (asignado2 < 2) {
-                        int posicion = new Random().nextInt(8);
+                        int posicion = new Random().nextInt(16);
                         while (parejas[posicion] != null) {
-                            posicion = new Random().nextInt(8);
+                            posicion = new Random().nextInt(16);
                         }
                         parejas[posicion] = getResources().getDrawable(R.drawable.img2);
                         asigandos++;
@@ -425,9 +576,9 @@ public class FacilActivity extends AppCompatActivity {
                     break;
                 case 3:
                     while (asignado3 < 2) {
-                        int posicion = new Random().nextInt(8);
+                        int posicion = new Random().nextInt(16);
                         while (parejas[posicion] != null) {
-                            posicion = new Random().nextInt(8);
+                            posicion = new Random().nextInt(16);
                         }
                         parejas[posicion] = getResources().getDrawable(R.drawable.img3);
                         asigandos++;
@@ -436,13 +587,57 @@ public class FacilActivity extends AppCompatActivity {
                     break;
                 case 4:
                     while (asignado4 < 2) {
-                        int posicion = new Random().nextInt(8);
+                        int posicion = new Random().nextInt(16);
                         while (parejas[posicion] != null) {
-                            posicion = new Random().nextInt(8);
+                            posicion = new Random().nextInt(16);
                         }
                         parejas[posicion] = getResources().getDrawable(R.drawable.img4);
                         asigandos++;
                         asignado4++;
+                    }
+                    break;
+                case 5:
+                    while (asignado5 < 2) {
+                        int posicion = new Random().nextInt(16);
+                        while (parejas[posicion] != null) {
+                            posicion = new Random().nextInt(16);
+                        }
+                        parejas[posicion] = getResources().getDrawable(R.drawable.img5);
+                        asigandos++;
+                        asignado5++;
+                    }
+                    break;
+                case 6:
+                    while (asignado6 < 2) {
+                        int posicion = new Random().nextInt(16);
+                        while (parejas[posicion] != null) {
+                            posicion = new Random().nextInt(16);
+                        }
+                        parejas[posicion] = getResources().getDrawable(R.drawable.img6);
+                        asigandos++;
+                        asignado6++;
+                    }
+                    break;
+                case 7:
+                    while (asignado7 < 2) {
+                        int posicion = new Random().nextInt(16);
+                        while (parejas[posicion] != null) {
+                            posicion = new Random().nextInt(16);
+                        }
+                        parejas[posicion] = getResources().getDrawable(R.drawable.img7);
+                        asigandos++;
+                        asignado7++;
+                    }
+                    break;
+                case 8:
+                    while (asignado8 < 2) {
+                        int posicion = new Random().nextInt(16);
+                        while (parejas[posicion] != null) {
+                            posicion = new Random().nextInt(16);
+                        }
+                        parejas[posicion] = getResources().getDrawable(R.drawable.img8);
+                        asigandos++;
+                        asignado8++;
                     }
                     break;
             }
@@ -452,7 +647,6 @@ public class FacilActivity extends AppCompatActivity {
     public void onClick(View view) {
         User.puntaje1 = 0;
         User.puntaje2 = 0;
-
         finish();
     }
 }

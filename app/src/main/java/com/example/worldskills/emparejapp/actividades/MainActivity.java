@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.worldskills.emparejapp.R;
+import com.example.worldskills.emparejapp.entidades.User;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        User.puntaje1=0;
+        User.puntaje2=0;
     }
 
     public void onClick(View view) {

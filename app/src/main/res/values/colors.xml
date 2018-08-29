@@ -4,6 +4,6 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="turno">#56ff5c</color>
-    <color name="turnoletra">#000000</color>
+    <color name="turnoletra">#00ff0000</color>
     <color name="esperaletra">#898989</color>
 </resources>

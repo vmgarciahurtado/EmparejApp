@@ -9,6 +9,7 @@ import com.example.worldskills.emparejapp.R;
 
 public class NivelActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,17 +18,19 @@ public class NivelActivity extends AppCompatActivity {
     }
 
     public void onClick(View view) {
-        Intent miIntent=null;
-        switch (view.getId()){
+        Intent miIntent = null;
+        switch (view.getId()) {
             case R.id.facil:
-                miIntent=new Intent(NivelActivity.this,FacilActivity.class);
-                finish();
+                miIntent = new Intent(NivelActivity.this, FacilActivity.class);
                 break;
             case R.id.medio:
+                miIntent = new Intent(NivelActivity.this, MedioActivity.class);
                 break;
             case R.id.dificil:
+                miIntent = new Intent(NivelActivity.this, DificilActivity.class);
                 break;
         }
         startActivity(miIntent);
+        finish();
     }
 }
