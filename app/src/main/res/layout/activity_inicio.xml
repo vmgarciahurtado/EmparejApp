@@ -4,39 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".activity.MainActivity">
+    tools:context=".activity.InicioActivity"
+    android:orientation="vertical">
 
 
-    <ImageView
+    <EditText
+        android:id="@+id/player1"
         android:layout_width="match_parent"
-        android:layout_height="300dp" />
+        android:layout_height="wrap_content"
+        android:hint="Player 1 ingrese su nombre"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/player2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Player 2 ingrese su nombre"
+        android:inputType="text" />
 
     <Button
-        android:id="@+id/juego"
+        android:id="@+id/registrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@color/colorPrimaryDark"
         android:onClick="onClick"
-        android:text="Jugar" />
-
-    <Button
-        android:id="@+id/lista"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@color/colorPrimaryDark"
-        android:onClick="onClick"
-        android:text="Puntajes" />
-
-    <Button
-        android:id="@+id/ajuste"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@color/colorPrimaryDark"
-        android:onClick="onClick"
-        android:text="Configuración" />
+        android:text="Registar" />
 
 </LinearLayout>
