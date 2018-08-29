@@ -23,14 +23,14 @@ public class PuntajesAdapter extends RecyclerView.Adapter<PuntajesAdapter.Puntaj
     @Override
     public PuntajesHolderView onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.modelo_lista_puntajes,null,false);
-        return null;
+        return new PuntajesHolderView(view);
     }
 
     @Override
     public void onBindViewHolder(PuntajesHolderView holder, int position) {
-        holder.campoNombre.setText(listaPuntajes.get(position).getJugador());
-        holder.campoPuntaje.setText(listaPuntajes.get(position).getPuntaje());
-        holder.campoNivel.setText(listaPuntajes.get(position).getNivel());
+        holder.campoNombre.setText("Jugador " + listaPuntajes.get(position).getJugador());
+        holder.campoPuntaje.setText("Puntaje " + listaPuntajes.get(position).getPuntaje());
+        holder.campoNivel.setText("Nivel " + listaPuntajes.get(position).getNivel());
     }
 
     @Override

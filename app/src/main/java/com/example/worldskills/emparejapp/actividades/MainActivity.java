@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.worldskills.emparejapp.Main3Activity;
 import com.example.worldskills.emparejapp.R;
 import com.example.worldskills.emparejapp.entidades.User;
 
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
                 miIntent=new Intent(MainActivity.this,NivelActivity.class);
                 break;
             case R.id.lista:
+                miIntent=new Intent(getApplicationContext(),Main3Activity.class);
                 break;
             case R.id.ajuste:
                 miIntent=new Intent(MainActivity.this,ConfiguracionActivity.class);
