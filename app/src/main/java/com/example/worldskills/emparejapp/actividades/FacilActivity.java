@@ -342,7 +342,7 @@ public class FacilActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_TEXT,msj);
-        startActivity(intent(Intent.createChooser(Intent,msj)));
+        startActivity(Intent.createChooser(intent,msj));
 
     }
 
