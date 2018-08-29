@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.worldskills.emparejapp.Main3Activity;
 import com.example.worldskills.emparejapp.R;
 import com.example.worldskills.emparejapp.entidades.User;
 

@@ -23,7 +23,12 @@
         <activity android:name=".actividades.ConfiguracionActivity" />
         <activity android:name=".actividades.NivelActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
-        <activity android:name=".actividades.FacilActivity"></activity>
+        <activity android:name=".actividades.FacilActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+        <activity android:name=".actividades.MedioActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+        <activity android:name=".actividades.DificilActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
 
         <activity
             android:name=".actividades.Main3Activity"

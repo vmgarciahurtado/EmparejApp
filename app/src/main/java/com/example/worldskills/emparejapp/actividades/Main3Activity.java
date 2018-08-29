@@ -1,7 +1,8 @@
-package com.example.worldskills.emparejapp;
+package com.example.worldskills.emparejapp.actividades;
 
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -24,8 +25,11 @@ import android.content.res.Resources.Theme;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.worldskills.emparejapp.R;
 import com.example.worldskills.emparejapp.adapter.PuntajesAdapter;
 import com.example.worldskills.emparejapp.entidades.PuntajeVo;
+import com.example.worldskills.emparejapp.utilidades.Conexion;
+import com.example.worldskills.emparejapp.utilidades.Utilidades;
 
 import java.util.ArrayList;
 
@@ -33,36 +37,27 @@ public class Main3Activity extends AppCompatActivity {
 
     Fragment fragment;
 
+    Conexion conn;
+    SQLiteDatabase bd;
     ArrayList<PuntajeVo> listaPuntaje;
     PuntajesAdapter adapter;
     RecyclerView recyclerPuntajes;
+    PuntajeVo puntajeVo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
 
+        conn = new Conexion(getApplicationContext(), "Puntaje", null, 1);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 
-
         recyclerPuntajes = findViewById(R.id.recyclePuntaje);
-        PuntajeVo puntajeVo = new PuntajeVo();
+        puntajeVo = new PuntajeVo();
         listaPuntaje = new ArrayList<>();
-
-        for (int i = 0;  i < 12; i++){
-            puntajeVo.setJugador("Juan diego");
-            puntajeVo.setPuntaje(100);
-            puntajeVo.setNivel(10);
-            listaPuntaje.add(puntajeVo);
-        }
-
-        adapter = new PuntajesAdapter(listaPuntaje);
-        recyclerPuntajes.setAdapter(adapter);
-
-
-
 
         // Setup spinner
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
@@ -77,20 +72,7 @@ public class Main3Activity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                switch (position){
-                    case 0:
-                        Toast.makeText(getApplicationContext(),"selecciono " + position ,Toast.LENGTH_SHORT).show();
-                        break;
-
-                    case 1:
-                        Toast.makeText(getApplicationContext(),"selecciono " + position ,Toast.LENGTH_SHORT).show();
-                        break;
-
-                    case 2:
-                        Toast.makeText(getApplicationContext(),"selecciono " + position ,Toast.LENGTH_SHORT).show();
-                        break;
-                }
+                consultar(position);
             }
 
             @Override
@@ -98,6 +80,24 @@ public class Main3Activity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void consultar(int position) {
+        listaPuntaje.clear();
+        adapter=null;
+        bd = conn.getReadableDatabase();
+
+        Cursor cursor = bd.rawQuery(" SELECT * FROM " + Utilidades.TABLA_JUEGO +
+                " WHERE " + Utilidades.CAMPO_NIVEL + "=" + position + "  ORDER BY "+Utilidades.CAMPO_PUNTAJE+" ASC ", null);
+
+        while (cursor.moveToNext()){
+            puntajeVo=new PuntajeVo();
+            puntajeVo.setJugador(cursor.getString(0));
+            puntajeVo.setPuntaje(cursor.getInt(1));
+            listaPuntaje.add(puntajeVo);
+        }
+        adapter = new PuntajesAdapter(listaPuntaje);
+        recyclerPuntajes.setAdapter(adapter);
     }
 
 
@@ -116,9 +116,6 @@ public class Main3Activity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -192,7 +189,7 @@ public class Main3Activity extends AppCompatActivity {
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main3, container, false);
             TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+
             return rootView;
         }
     }

@@ -30,7 +30,6 @@ public class PuntajesAdapter extends RecyclerView.Adapter<PuntajesAdapter.Puntaj
     public void onBindViewHolder(PuntajesHolderView holder, int position) {
         holder.campoNombre.setText("Jugador " + listaPuntajes.get(position).getJugador());
         holder.campoPuntaje.setText("Puntaje " + listaPuntajes.get(position).getPuntaje());
-        holder.campoNivel.setText("Nivel " + listaPuntajes.get(position).getNivel());
     }
 
     @Override
@@ -45,7 +44,6 @@ public class PuntajesAdapter extends RecyclerView.Adapter<PuntajesAdapter.Puntaj
             super(itemView);
             campoNombre = itemView.findViewById(R.id.campoNombreModelo);
             campoPuntaje = itemView.findViewById(R.id.campoPuntajeModelo);
-            campoNivel = itemView.findViewById(R.id.campoNivelModelo);
         }
     }
 }
