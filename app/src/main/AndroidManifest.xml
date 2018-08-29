@@ -20,9 +20,11 @@
         </activity>
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.InicioActivity" />
-        <activity android:name=".activity.NivelActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
-        <activity android:name=".activity.FacilActivity"></activity>
+        <activity
+            android:name=".activity.NivelActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity android:name=".activity.FacilActivity" />
+        <activity android:name=".activity.ConfiguracionActivity"></activity>
     </application>
 
 </manifest>

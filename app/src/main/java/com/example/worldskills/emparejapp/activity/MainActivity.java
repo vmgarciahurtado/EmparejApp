@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.lista:
                 break;
             case R.id.ajuste:
+                miIntent=new Intent(MainActivity.this,ConfiguracionActivity.class);
                 break;
         }
         startActivity(miIntent);
