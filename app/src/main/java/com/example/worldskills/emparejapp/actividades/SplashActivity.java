@@ -1,4 +1,4 @@
-package com.example.worldskills.emparejapp.activity;
+package com.example.worldskills.emparejapp.actividades;
 
 import android.content.Intent;
 import android.os.CountDownTimer;
@@ -24,7 +24,7 @@ public class SplashActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                Intent miIntent=new Intent(SplashActivity.this,MainActivity.class);
+                Intent miIntent=new Intent(SplashActivity.this,InicioActivity.class);
                 startActivity(miIntent);
                 finish();
             }

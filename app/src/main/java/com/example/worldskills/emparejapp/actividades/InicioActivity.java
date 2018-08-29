@@ -1,5 +1,6 @@
-package com.example.worldskills.emparejapp.activity;
+package com.example.worldskills.emparejapp.actividades;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,5 +25,8 @@ public class InicioActivity extends AppCompatActivity {
     public void onClick(View view) {
         User.player1=player1.getText().toString();
         User.player2=player2.getText().toString();
+        Intent miIntent=new Intent(InicioActivity.this,MainActivity.class);
+        startActivity(miIntent);
+        finish();
     }
 }
