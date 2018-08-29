@@ -1,4 +1,4 @@
-package com.example.worldskills.emparejapp.activity;
+package com.example.worldskills.emparejapp.actividades;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

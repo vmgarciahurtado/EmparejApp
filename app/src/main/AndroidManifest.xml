@@ -20,6 +20,7 @@
         </activity>
         <activity android:name=".actividades.MainActivity" />
         <activity android:name=".actividades.InicioActivity" />
+        <activity android:name=".actividades.ConfiguracionActivity" />
         <activity android:name=".actividades.NivelActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
         <activity android:name=".actividades.FacilActivity"></activity>

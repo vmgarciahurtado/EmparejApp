@@ -6,13 +6,13 @@
     android:gravity="center"
     android:layout_height="match_parent"
     android:padding="12dp"
-    tools:context=".activity.ConfiguracionActivity">
+    tools:context=".actividades.ConfiguracionActivity">
 
 
     <Spinner
         android:id="@+id/spinnerTipoJuego"
         android:layout_width="249dp"
-        android:layout_height="33dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
